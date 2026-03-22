@@ -150,4 +150,4 @@ This release represents the initial stable version of the project, fully functio
 
 ## 📄 License
 
-This project is released under the **MIT License** © Monami Jerome
+This project is released under the **CCO-1.0** © Monami Jerome
