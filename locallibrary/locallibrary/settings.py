@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','django-insecure-dz295&!*ye^^8*p
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-#DEBUG = True
+#DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG','') != 'False'
 
 ALLOWED_HOSTS = ['monamijer.pythonanywhere.com', '127.0.0.1']
@@ -135,6 +135,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
