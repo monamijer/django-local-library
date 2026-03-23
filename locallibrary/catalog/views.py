@@ -103,23 +103,29 @@ class MyView(PermissionRequiredMixin, generic.ListView):
                 )
 SECRET = "ea91969293d7bf3867c5ad8f1c642351cb105cf1a834bbced673808192eaaa44ea91969293d7bf3867c5ad8f1c642351cb105cf1a834bbced673808192eaaa44"
 
+
 @csrf_exempt
 def deploy(request):
     if request.method == "POST":
         signature = request.headers.get("X-Hub-Signature-256")
-        body = request.body
+
+        if signature is None:
+            return HttpResponse("No signature", status=403)
 
         expected_signature = "sha256=" + hmac.new(
-            SECRET.encode(), body, hashlib.sha256
+            SECRET.encode(),
+            request.body,
+            hashlib.sha256
         ).hexdigest()
 
         if not hmac.compare_digest(expected_signature, signature):
-            return HttpResponse("Unauthorized", status=403)
+            return HttpResponse("Invalid signature", status=403)
 
         subprocess.Popen(["/home/monamijer/django-local-library/deploy.sh"])
         return HttpResponse("Deploy started")
 
-    return HttpResponse("Invalid request")    
+    return HttpResponse("Invalid request")
+    
 
 @login_required
 @permission_required('catalog.can_mark_returned', raise_exception=True)
