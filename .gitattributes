@@ -1,0 +1,7 @@
+# Ignore les fichiers JS des stats linguistiques
+*.js linguist-vendored
+
+# Ignore les dossiers statiques
+static/* linguist-vendored
+assets/* linguist-vendored
+static/vendor/* linguist-vendored
