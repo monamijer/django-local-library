@@ -22,7 +22,7 @@
 ## 🔗 Live Demo
 
 Visit the live version of the project here:  
-👉 **http://monamijer.pythonanywhere.com**
+👉 **https://monamijer.pythonanywhere.com**
 
 ---
 
