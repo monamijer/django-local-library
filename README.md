@@ -2,7 +2,6 @@
 
 **Online Library** is a web application built with Django that provides an online library platform where students can browse, read, and borrow books. The application features user authentication, book listings, and borrowing history tracking.
 
-The project is deployed and available at **http://monamijer.pythonanywhere.com**.
 
 ---
 
